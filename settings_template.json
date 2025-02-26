@@ -1,0 +1,14 @@
+{
+	"name": "module_name",
+	"version": "0.0.0",
+	"settings": {
+		"port": {
+			"value": 5000,
+			"description": "..."
+		},
+		"host": {
+			"value": "localhost",
+			"description": "..."
+		}
+	}
+}

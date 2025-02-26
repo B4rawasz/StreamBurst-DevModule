@@ -1,5 +1,24 @@
 {
-  "dependencies": {
-    "@electron/asar": "^3.3.1"
-  }
+	"name": "streamburst-devmodule",
+	"version": "1.0.0",
+	"author": "B4rawasz",
+	"description": "dev module",
+	"main": "index.js",
+	"type": "module",
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/B4rawasz/StreamBurst-DevModule.git"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/B4rawasz/StreamBurst-DevModule/issues"
+	},
+	"homepage": "https://github.com/B4rawasz/StreamBurst-DevModule#readme",
+	"dependencies": {
+		"@electron/asar": "^3.3.1"
+	}
 }
