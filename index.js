@@ -18,7 +18,7 @@ class ExampleModule extends EventEmitter {
 
 	enable() {
 		if (this.enabled) {
-			console.log("[Dev Module] Already enabled");
+			this.emit("error", "[Dev Module] Already enabled");
 			return;
 		}
 
@@ -26,10 +26,10 @@ class ExampleModule extends EventEmitter {
 
 		this.settings = JSON.parse(fs.readFileSync(this.settingsPath)).settings;
 
-		console.log("[Dev Module] Enabling");
-		console.log("[Dev Module] Settings path: " + this.settingsPath);
-		console.log("[Dev Module] host: " + this.settings.host.value);
-		console.log("[Dev Module] port: " + this.settings.port.value);
+		this.emit("debug", "[Dev Module] Enabling");
+		this.emit("debug", "[Dev Module] Settings path: " + this.settingsPath);
+		this.emit("debug", "[Dev Module] host: " + this.settings.host.value);
+		this.emit("debug", "[Dev Module] port: " + this.settings.port.value);
 
 		this.server = http.createServer((req, res) => {
 			if (req.method == "POST") {
@@ -40,7 +40,7 @@ class ExampleModule extends EventEmitter {
 					body += data;
 				});
 				req.on("end", () => {
-					console.log("POST payload: " + body);
+					this.emit("debug", "POST payload: " + body);
 					this.emit("event", body);
 					res.end("ok");
 				});
@@ -61,11 +61,11 @@ class ExampleModule extends EventEmitter {
 
 	disable() {
 		if (!this.enabled) {
-			console.log("[Dev Module] Already disabled");
+			this.emit("error", "[Dev Module] Already disabled");
 			return;
 		}
 
-		console.log("[Dev Module] Disabling");
+		this.emit("debug", "[Dev Module] Disabling");
 
 		this.enabled = false;
 
