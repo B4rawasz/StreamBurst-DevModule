@@ -31,6 +31,8 @@ class ExampleModule extends EventEmitter {
 		console.log("[Example Module] host: " + this.settings.host);
 		console.log("[Example Module] port: " + this.settings.port);
 
+		this.emit("event", "asdasd");
+
 		this.server = http.createServer((req, res) => {
 			if (req.method == "POST") {
 				res.writeHead(200, { "Content-Type": "text/html" });
@@ -39,8 +41,9 @@ class ExampleModule extends EventEmitter {
 				req.on("data", function (data) {
 					body += data;
 				});
-				req.on("end", function () {
+				req.on("end", () => {
 					console.log("POST payload: " + body);
+					this.emit("event", body);
 					res.end("ok");
 				});
 			} else {

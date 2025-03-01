@@ -5,7 +5,6 @@
 	"description": "dev module",
 	"main": "index.js",
 	"type": "module",
-	"devDependencies": {},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
@@ -19,6 +18,7 @@
 	},
 	"homepage": "https://github.com/B4rawasz/StreamBurst-DevModule#readme",
 	"dependencies": {
-		"@electron/asar": "^3.3.1"
+		"@electron/asar": "^3.3.1",
+		"http-terminator": "^3.2.0"
 	}
 }
