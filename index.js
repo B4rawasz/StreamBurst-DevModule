@@ -41,7 +41,21 @@ class ExampleModule extends EventEmitter {
 				});
 				req.on("end", () => {
 					this.emit("debug", "POST payload: " + body);
-					this.emit("event", body);
+
+					switch (req.url) {
+						case "/":
+							this.emit("event", body);
+							break;
+						case "/debug":
+							this.emit("debug", body);
+							break;
+						case "/error":
+							this.emit("error", body);
+							break;
+						default:
+							break;
+					}
+
 					res.end("ok");
 				});
 			} else {
