@@ -18,7 +18,7 @@ class ExampleModule extends EventEmitter {
 
 	enable() {
 		if (this.enabled) {
-			console.log("[Example Module] Already enabled");
+			console.log("[Dev Module] Already enabled");
 			return;
 		}
 
@@ -26,12 +26,10 @@ class ExampleModule extends EventEmitter {
 
 		this.settings = JSON.parse(fs.readFileSync(this.settingsPath)).settings;
 
-		console.log("[Example Module] Enabling");
-		console.log("[Example Module] Settings path: " + this.settingsPath);
-		console.log("[Example Module] host: " + this.settings.host);
-		console.log("[Example Module] port: " + this.settings.port);
-
-		this.emit("event", "asdasd");
+		console.log("[Dev Module] Enabling");
+		console.log("[Dev Module] Settings path: " + this.settingsPath);
+		console.log("[Dev Module] host: " + this.settings.host.value);
+		console.log("[Dev Module] port: " + this.settings.port.value);
 
 		this.server = http.createServer((req, res) => {
 			if (req.method == "POST") {
@@ -63,11 +61,11 @@ class ExampleModule extends EventEmitter {
 
 	disable() {
 		if (!this.enabled) {
-			console.log("[Example Module] Already disabled");
+			console.log("[Dev Module] Already disabled");
 			return;
 		}
 
-		console.log("[Example Module] Disabling");
+		console.log("[Dev Module] Disabling");
 
 		this.enabled = false;
 
