@@ -1,0 +1,25 @@
+{
+	"events": {
+		"eventId": {
+			"description": "brief description of the event",
+			"params": {}
+		},
+		"eventId2": {
+			"description": "brief description of the event 2",
+			"params": {
+				"param1": {
+					"type": "string",
+					"description": "description of the parameter"
+				},
+				"param2": {
+					"type": "number",
+					"description": "description of the parameter"
+				},
+				"param3": {
+					"type": "boolean",
+					"description": "description of the parameter"
+				}
+			}
+		}
+	}
+}
