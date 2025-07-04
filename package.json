@@ -1,12 +1,13 @@
 {
 	"name": "streamburst-devmodule",
+	"productName": "StreamBurst DevModule",
 	"version": "1.0.0",
 	"author": "B4rawasz",
 	"description": "dev module",
 	"main": "index.js",
 	"type": "module",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"build": "node builder.js"
 	},
 	"repository": {
 		"type": "git",
